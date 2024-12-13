@@ -37,11 +37,12 @@ const Home = () => {
   const { id } = useParams();
   const [userRecord, setUserRecord] = useState({});
   const [profileUrl, setProfileUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const qrData = `https://profile.tappze.ca/${id}`;
   const qrRef = useRef(null);
   const profileRef = useRef(null);
   const navigate = useNavigate();
-
+  console.log(isLoading);
   const icons = {
     phone,
     instagram,
@@ -315,109 +316,118 @@ const Home = () => {
   useEffect(() => {
     fetchUserData();
     updateTotalClicks(id);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   }, [id]);
 
   return (
     <main className={styles.main}>
-      <div className={styles.section}>
-        <div className={styles.profileCard} ref={profileRef}>
-          <div className={styles.avatar}>
-            <img
-              src={profileUrl || profile}
-              width="90px"
-              alt="Profile"
-              style={{ borderRadius: "100px" }}
-            />
+      {isLoading ? (
+        <div id={styles.preloaders}>
+          <div className={styles.loader}></div>
+        </div>
+      ) : (
+        <div className={styles.section}>
+          <div className={styles.profileCard} ref={profileRef}>
+            <div className={styles.avatar}>
+              <img
+                src={profileUrl || profile}
+                width="90px"
+                alt="Profile"
+                style={{ borderRadius: "100px" }}
+              />
+            </div>
+            <p className={styles.name}>{userRecord?.name}</p>
+            <p className={styles.username}>{userRecord?.username}</p>
+            <p className={styles.email}>{userRecord?.email}</p>
           </div>
-          <p className={styles.name}>{userRecord?.name}</p>
-          <p className={styles.username}>{userRecord?.username}</p>
-          <p className={styles.email}>{userRecord?.email}</p>
-        </div>
 
-        <div className={styles.buttons}>
-          <button
-            className={styles.qrButton}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(qrRef);
-            }}
-          >
-            QR code
-          </button>
-          <button className={styles.addButton} onClick={handleButtonClick}>
-            Add to contacts
-          </button>
-        </div>
-
-        <div className={styles.iconsGrid}>
-          {userRecord?.links?.map((item) => {
-            const iconSrc = icons[item.name.toLowerCase()];
-            return (
-              <div className={styles.icon} key={item.id}>
-                <img
-                  src={iconSrc}
-                  width="60px"
-                  alt={item.name}
-                  onClick={() => handleIconClick(item)}
-                />
-                <p>{item.name}</p>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className={styles.qrSection} ref={qrRef}>
-          <h3 className={styles.title}>My QR Code</h3>
-          <div className={styles.qrContainer}>
-            <p></p>
-            <QRCodeCanvas
-              value={qrData}
-              size={130}
-              bgColor={"#ffffff"}
-              fgColor={"#000000"}
-              className={styles.qrImage}
-            />
-            <LuSquareArrowUp
-              className={styles.arrow}
+          <div className={styles.buttons}>
+            <button
+              className={styles.qrButton}
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection(profileRef);
+                scrollToSection(qrRef);
               }}
-            />
+            >
+              QR code
+            </button>
+            <button className={styles.addButton} onClick={handleButtonClick}>
+              Add to contacts
+            </button>
           </div>
-          <div className={styles.poweredBy}>
-            <p style={{ fontSize: "15px" }}>
-              Powered by <strong>Tappze™</strong>
+
+          <div className={styles.iconsGrid}>
+            {userRecord?.links?.map((item) => {
+              const iconSrc = icons[item.name.toLowerCase()];
+              return (
+                <div className={styles.icon} key={item.id}>
+                  <img
+                    src={iconSrc}
+                    width="60px"
+                    alt={item.name}
+                    onClick={() => handleIconClick(item)}
+                  />
+                  <p>{item.name}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className={styles.qrSection} ref={qrRef}>
+            <h3 className={styles.title}>My QR Code</h3>
+            <div className={styles.qrContainer}>
+              <p></p>
+              <QRCodeCanvas
+                value={qrData}
+                size={130}
+                bgColor={"#ffffff"}
+                fgColor={"#000000"}
+                className={styles.qrImage}
+              />
+              <LuSquareArrowUp
+                className={styles.arrow}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(profileRef);
+                }}
+              />
+            </div>
+            <div className={styles.poweredBy}>
+              <p style={{ fontSize: "15px" }}>
+                Powered by <strong>Tappze™</strong>
+              </p>
+            </div>
+            <div className={styles.storeButtons}>
+              <a
+                href="https://play.google.com/store/apps/datasafety?id=com.tappze.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={GetIntogoogle} alt="Google Play" />
+              </a>
+              <a
+                href="https://apps.apple.com/ca/app/tappze/id1638158364"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={AppStore} alt="App Store" />
+              </a>
+            </div>
+            <p className={styles.footerText}>
+              Get yours now at{" "}
+              <a
+                href="https://www.tappze.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                www.tappze.com
+              </a>
             </p>
           </div>
-          <div className={styles.storeButtons}>
-            <a
-              href="https://play.google.com/store/apps/datasafety?id=com.tappze.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={GetIntogoogle} alt="Google Play" />
-            </a>
-            <a
-              href="https://apps.apple.com/ca/app/tappze/id1638158364"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={AppStore} alt="App Store" />
-            </a>
-          </div>
-          <p className={styles.footerText}>
-            Get yours now at{" "}
-            <a
-              href="https://www.tappze.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              www.tappze.com
-            </a>
-          </p>
         </div>
-      </div>
+      )}
     </main>
   );
 };

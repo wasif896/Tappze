@@ -106,10 +106,11 @@ const LockCard = () => {
                       <img
                         src={tapze}
                         style={{
-                          height: "47px",
+                          height: "30px",
                           backgroundColor: "black",
                           width: "100px",
-                          padding: "10px",
+                          padding: "8px",
+                          borderRadius:"5px"
                         }}
                         alt="card-img"
                       />
@@ -117,7 +118,7 @@ const LockCard = () => {
                     <div className={styles["left-caption"]}>
                       <span
                         className="text-sm"
-                        style={{ color: "black", fontSize: "15px" }}
+                        style={{ color: "black", fontSize: "17px" }}
                       >
                         <b>TappZe</b>
                       </span>
