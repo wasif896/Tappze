@@ -387,6 +387,7 @@ const Home = () => {
                 className={styles.qrImage}
               />
               <LuSquareArrowUp
+              style={{cursor:'pointer'}}
                 className={styles.arrow}
                 onClick={(e) => {
                   e.preventDefault();
