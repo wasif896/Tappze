@@ -1,0 +1,179 @@
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .section {
+    width: 100%;
+    max-width: 435px; 
+    box-sizing: border-box;
+    padding: 10px;
+
+    
+  }
+  .profileCard {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .name {
+    font-size: 28px;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: system-ui;
+
+  }
+  .arrow{
+    background: black;
+    color: white;
+    font-size: 35px;
+    border-radius: 5px;
+  }
+  
+  .username, .email {
+    margin: 10px 0;
+    font-size: 18px;
+    font-family: system-ui;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .qrButton, .addButton {
+    flex: 1;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .qrButton {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000000;
+    margin-right: 10px;
+    font-family: system-ui;
+  }
+  
+  .addButton {
+    font-family: system-ui;
+    background-color: #000;
+    color: #fff;
+  }
+  .iconsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .icon p{
+    width: 100px;
+    overflow-wrap: break-word;
+    max-height: 33px;
+    font-family: system-ui;
+    overflow: hidden;
+    font-size: 16px;
+  }
+  
+  .iconStyle {
+    font-size: 60px;
+    margin-bottom: 5px;
+  }
+  .qrSection {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-family: system-ui;
+    font-weight: 700;
+
+  }
+  
+  .qrContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0;
+    margin-left: 35px;
+  }
+  
+  .qrImage {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .uploadButton {
+    background-color: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .uploadIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .poweredBy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    gap: 5px;
+  }
+  .poweredBy p {
+    font-family: system-ui;
+  }
+  
+  .tappzeLogo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .storeButtons {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin: 10px 0;
+  }
+  
+  .storeButtons img {
+    width: 120px;
+    height: auto;
+  }
+  
+  .footerText {
+    font-size: 16px;
+    color: #666;
+    font-family: system-ui;
+  }
+  
+  .footerText a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .footerText a:hover {
+    text-decoration: underline;
+  }
+  

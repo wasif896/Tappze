@@ -1,0 +1,58 @@
+.margin {
+  padding: 20px;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.section {
+  width: 100%;
+  max-width: 435px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.width {
+  width: 90%;
+}
+
+.image {
+  float: left;
+}
+
+.wrapper {
+   text-align: center;
+   margin-top: 20px;
+}
+.stores{
+  display: flex;
+  justify-content: space-between;
+}
+.left-caption {
+  font-weight: 500;
+  float: left;
+  margin-left: 15px;
+}
+
+body {
+  font-size: 0.8em;
+  width: 400px;
+  margin: 0 auto;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.modal-backdrop.show {
+  opacity: 0;
+}
+
+.modal-backdrop {
+  z-index: 0;
+}
+
